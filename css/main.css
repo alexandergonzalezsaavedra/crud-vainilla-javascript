@@ -34,7 +34,6 @@ body {
     color: var(--black);
 }
 h1 {
-    font-family: "Playfair Display", serif;
     font-size: 2.3rem;
     color: var(--black);
     font-weight: 600;
@@ -52,6 +51,9 @@ p {
 }
 .intro h1 {
     color: var(--blue-500);
+}
+.intro h1 a {
+    text-decoration: none;
 }
 .intro p {
     color: var(--white);

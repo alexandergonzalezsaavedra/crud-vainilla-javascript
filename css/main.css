@@ -22,6 +22,7 @@
     --white: #ffffff;
     --violet: #818cf8;
     --gold: #e0ccbb;
+    --blue-500: #3b82f6;
 }
 * {
     font-family: "Carme", sans-serif;
@@ -50,7 +51,7 @@ p {
     padding: 30px 0;
 }
 .intro h1 {
-    color: var(--violet);
+    color: var(--blue-500);
 }
 .intro p {
     color: var(--white);
@@ -76,10 +77,18 @@ p {
 }
 .scrollspy-section {
     position: sticky;
-    top: 50px;
+    top: 0;
     display: block;
     background: var(--bg-ligth);
     z-index: 9;
+}
+.content-btn {
+    text-align: end;
+}
+@media (max-width: 768px) {
+    .scrollspy-section .content-btn {
+        text-align: center;
+    }
 }
 /* MODO OSCURO */
 body.dark-mode {

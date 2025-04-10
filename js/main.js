@@ -1,3 +1,4 @@
+const modalAdd = document.querySelector('#addUserModal')
 const modalAddUser = new bootstrap.Modal(document.querySelector('#addUserModal'))
 const formCreateUser = document.querySelector("#createUser");
 const togglePassword = document.querySelector('#togglePassword');
@@ -17,6 +18,14 @@ togglePassword.addEventListener('click', function () {
     iconVisibilityPass.textContent = iconVisibilityPass.textContent === 'visibility'
         ? 'visibility_off'
         : 'visibility';
+});
+
+modalAdd.addEventListener("click", (e) => {
+    const btnCancelAdd = e.target.closest(".cancel-add")
+    if (btnCancelAdd) {
+        formCreateUser.reset();
+        modalAddUser.hide()
+    }
 });
 
 noData.addEventListener("click", (e) => {

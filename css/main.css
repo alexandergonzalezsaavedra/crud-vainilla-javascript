@@ -255,7 +255,21 @@ p {
     text-align: end;
 }
 @media (max-width: 768px) {
+    .hero {
+        height: 50dvh;
+    }
+    .hero .intro .d-flex {
+        justify-content: center;
+    }
+    .hero .intro h1.text-start {
+        margin-bottom: 30px;
+        padding-left: 30px;
+    }
+    .scrollspy-section .d-flex {
+        justify-content: center;
+    }
     .scrollspy-section h3 {
+        text-align: center;
         justify-content: center;
     }
     .scrollspy-section .content-btn {

@@ -23,20 +23,33 @@
     --violet: #818cf8;
     --gold: #e0ccbb;
     --blue-500: #3b82f6;
+    --blue: #0d6efd;
+    --background-color: #08005e;
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #0c0091;
+    --contrast-color: #ffffff;
+
+    scroll-behavior: smooth;
 }
+
 * {
     font-family: "Carme", sans-serif;
     font-style: normal;
 }
 
 body {
-    background: var(--bg-ligth);
+    background: var(--white);
     color: var(--black);
+    padding-bottom: 40px;
 }
 h1 {
     font-size: 2.3rem;
     color: var(--black);
     font-weight: 600;
+}
+h2 {
+    font-size: 1.3rem;
 }
 h3 {
     font-size: 1.3rem;
@@ -46,18 +59,170 @@ p {
 }
 
 .intro {
-    background: var(--bg-dark);
+    position: relative;
     padding: 30px 0;
+    z-index: 50;
 }
 .intro h1 {
-    color: var(--blue-500);
+    color: var(--bg-ligth);
 }
-.intro h1 a {
-    text-decoration: none;
+.intro h1 b {
+    font-size: 3.5rem;
+    letter-spacing: 10px;
 }
+
 .intro p {
     color: var(--white);
 }
+
+.intro p::before {
+    color: var(--white);
+}
+
+.intro .profile-admin {
+    text-align: right;
+}
+
+.intro .profile-admin p {
+    margin: 0;
+}
+.intro .profile-admin p.name {
+    margin: 0;
+}
+.intro .profile-admin p.position {
+    font-size: 0.8rem;
+    color: var(--blue-500);
+}
+
+.intro .profile-admin .content-img {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    padding: 5px;
+    border: solid 2px rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: up-down 4s ease-in-out infinite alternate-reverse both;
+}
+
+.intro .redes {
+    color: var(--bg-ligth);
+}
+.intro .redes a {
+    font-size: 1.3rem;
+    color: var(--bg-ligth);
+    text-decoration: none;
+    transition: 0.3s;
+}
+.intro .redes a:hover {
+    font-size: 1.3rem;
+    color: var(--blue-500);
+    text-decoration: none;
+    transition: 0.3s;
+}
+.intro .redes a i {
+    transition: 0.3s;
+    color: var(--bg-ligth);
+}
+.intro .redes a:hover i {
+    transform: scale(1.2);
+    transition: 0.3s;
+    color: var(--bg-ligth);
+}
+
+@keyframes up-down {
+    0% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.intro .profile-admin .content-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.hero {
+    position: relative;
+    height: 300px; /* puedes ajustar esto */
+    background: var(--blue-500);
+    overflow: hidden;
+}
+
+.hero:before {
+    content: "";
+    background: color-mix(in srgb, var(--background-color), transparent 10%);
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+.hero-waves {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 3;
+}
+
+.hero .wave1 use,
+.hero .wave2 use,
+.hero .wave3 use {
+    animation: moveWave 10s linear infinite;
+    will-change: transform;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.hero .wave1 use {
+    animation-duration: 10s;
+    animation-name: moveWave1;
+    opacity: 0.6;
+    fill: var(--default-color);
+}
+
+.hero .wave2 use {
+    animation-duration: 8s;
+    animation-name: moveWave2;
+    opacity: 0.4;
+    fill: var(--default-color);
+}
+
+.hero .wave3 use {
+    animation-duration: 6s;
+    animation-name: moveWave3;
+    opacity: 1;
+    fill: var(--default-color);
+}
+
+@keyframes moveWave1 {
+    0% {
+        transform: translateX(85px);
+    }
+    100% {
+        transform: translateX(-90px);
+    }
+}
+@keyframes moveWave2 {
+    0% {
+        transform: translateX(-90px);
+    }
+    100% {
+        transform: translateX(85px);
+    }
+}
+@keyframes moveWave3 {
+    0% {
+        transform: translateX(-90px);
+    }
+    100% {
+        transform: translateX(85px);
+    }
+}
+
 .form-card {
     padding: 16px 24px;
 }
@@ -67,9 +232,9 @@ p {
 }
 .list-card {
     background: var(--white);
-    padding: 16px;
-    border-radius: 16px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    padding: 50px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
 }
 .list-card .detailsUser .material-icons {
     font-size: 12px;
@@ -77,17 +242,23 @@ p {
 .highlight {
     font-weight: 600;
 }
+.list-card .detailsUser .details-mail {
+    background: var(--violet);
+}
 .scrollspy-section {
     position: sticky;
     top: 0;
     display: block;
-    background: var(--bg-ligth);
+    background: var(--white);
     z-index: 9;
 }
 .content-btn {
     text-align: end;
 }
 @media (max-width: 768px) {
+    .scrollspy-section h3 {
+        justify-content: center;
+    }
     .scrollspy-section .content-btn {
         text-align: center;
     }
